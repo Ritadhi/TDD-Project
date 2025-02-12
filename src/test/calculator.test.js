@@ -67,4 +67,10 @@ describe('String Calculator', () => {
 
         expect(result).toBe(6)
     });
+
+    it('add multiple delimiter', () => {
+        const result = add('//[*][%]\n1*2%3');
+
+        expect(result).toBe(6)
+    });
 });
