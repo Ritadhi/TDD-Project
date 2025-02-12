@@ -25,4 +25,10 @@ describe('String Calculator', () => {
 
         expect(result).toBe(1499301)
     })
+
+    it('add new lines and comma separated number', () => {
+        const result = add('1\n2,3');
+
+        expect(result).toBe(6)
+    });
 });
