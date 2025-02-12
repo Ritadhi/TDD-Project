@@ -7,4 +7,9 @@ describe('String Calculator', () => {
         expect(result).toBe(0)
     });
 
+    it('add single number', () => {
+        const result = add('1');
+
+        expect(result).toBe(1)
+    });
 });
