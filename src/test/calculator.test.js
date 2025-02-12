@@ -37,4 +37,22 @@ describe('String Calculator', () => {
 
         expect(result).toBe(3)
     });
+
+    it('add single negative number', () => {
+        const result = add('-1');
+
+        expect(result).toBe("negative numbers not allowed -1")
+    });
+
+    it('add single negative number with other positive numbers', () => {
+        const result = add('2,-1,3');
+
+        expect(result).toBe("negative numbers not allowed -1")
+    });
+
+    it('add multiple negative numbers', () => {
+        const result = add('2,-1,3,-4,6');
+
+        expect(result).toBe("negative numbers not allowed -1,-4")
+    });
 });
