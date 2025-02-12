@@ -1,14 +1,14 @@
 const add = function (str) {
     if(str.length === 0) return 0;
+    const delimeters = [',', '\n'];
     if(str.startsWith('//')) {
         str = str.split('\n');
         const delimeter = str.shift().replace(/\/\//g, '');
+        delimeters.push(delimeter)
         str = str.join('\n');
-        return str.split(',').map(el => el.split('\n')).flat().map(el => el.split(delimeter)).flat().reduce((acc, curr) => {
-            return acc + Number(curr);
-        }, 0)
     }
-    return str.split(',').map(el => el.split('\n')).flat().reduce((acc, curr) => {
+    let regex = new RegExp('[' + delimeters.join('') + ']+', 'g');
+    return str.split(regex).reduce((acc, curr) => {
         return acc + Number(curr);
     }, 0)
 }
