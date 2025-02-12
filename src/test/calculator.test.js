@@ -73,4 +73,16 @@ describe('String Calculator', () => {
 
         expect(result).toBe(6)
     });
+
+    it('add multiple long delimiter to fail', () => {
+        const result = add('//[***][%*%]\n1***2*%*3');
+
+        expect(result).toBe(NaN)
+    });
+
+    it('add multiple long delimiter', () => {
+        const result = add('//[***][%*%]\n1***2%*%3');
+
+        expect(result).toBe(6)
+    });
 });
