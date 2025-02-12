@@ -3,7 +3,7 @@ const add = function (str) {
     const delimeters = [',', '\n'];
     if(str.startsWith('//')) {
         str = str.split('\n');
-        const delimeter = str.shift().replace(/\/\//g, '');
+        const delimeter = str.shift().replace(/\/\//g, '').replace(/[\[\]]/g, '');
         delimeters.push(delimeter)
         str = str.join('\n');
     }
