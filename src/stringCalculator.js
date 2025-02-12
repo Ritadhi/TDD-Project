@@ -12,8 +12,8 @@ const add = function (str) {
     const negativeNumbers = numberArr.filter(el => el < 0);
     return negativeNumbers.length > 0 
         ? `negative numbers not allowed ${negativeNumbers.join(',')}` 
-        : numberArr.filter(el => el < 1000).reduce((acc, curr) => {
-            return acc + Number(curr);
+        : numberArr.reduce((acc, curr) => {
+            return acc + (curr < 1000 ? Number(curr) : 0);
         }, 0);
 }
 
