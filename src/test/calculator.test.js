@@ -12,4 +12,10 @@ describe('String Calculator', () => {
 
         expect(result).toBe(1)
     });
+
+    it('add comma separated number', () => {
+        const result = add('1,5');
+
+        expect(result).toBe(6)
+    });
 });
