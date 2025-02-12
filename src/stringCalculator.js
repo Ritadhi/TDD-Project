@@ -8,12 +8,14 @@ const add = function (str) {
         str = str.join('\n');
     }
     let regex = new RegExp('[' + delimeters.join('') + ']+', 'g');
-    const negativeNumbers = [];
-    const result = str.split(regex).reduce((acc, curr) => {
-        if(curr < 0) negativeNumbers.push(curr);
-        return acc + Number(curr);
-    }, 0)
-    return negativeNumbers.length > 0 ? `negative numbers not allowed ${negativeNumbers.join(',')}` : result;
+    const numberArr = str.split(regex);
+    const negativeNumbers = numberArr.filter(el => el < 0);
+    return negativeNumbers.length > 0 
+        ? `negative numbers not allowed ${negativeNumbers.join(',')}` 
+        : numberArr.reduce((acc, curr) => {
+            if(curr < 0) negativeNumbers.push(curr);
+            return acc + Number(curr);
+        }, 0);
 }
 
 module.exports = {
