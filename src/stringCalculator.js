@@ -8,9 +8,12 @@ const add = function (str) {
         str = str.join('\n');
     }
     let regex = new RegExp('[' + delimeters.join('') + ']+', 'g');
-    return str.split(regex).reduce((acc, curr) => {
+    const negativeNumbers = [];
+    const result = str.split(regex).reduce((acc, curr) => {
+        if(curr < 0) negativeNumbers.push(curr);
         return acc + Number(curr);
     }, 0)
+    return negativeNumbers.length > 0 ? `negative numbers not allowed ${negativeNumbers.join(',')}` : result;
 }
 
 module.exports = {
