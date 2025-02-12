@@ -61,4 +61,10 @@ describe('String Calculator', () => {
 
         expect(result).toBe(2)
     });
+
+    it('add long delimiter', () => {
+        const result = add('//[***]\n1***2***3');
+
+        expect(result).toBe(6)
+    });
 });
